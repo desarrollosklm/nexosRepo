@@ -1,0 +1,33 @@
+<form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+
+    <input type="hidden" name="idAuthor" 
+    [value]="service.formData.idAuthor" />
+    
+    <div class="form-group">
+        <label>NOMBRE AUTOR *</label>
+        <input required class="form-control form-control-lg" uppercase placeholder="Nombre completo del autor" name="fullName" #fullName="ngModel" [(ngModel)]="service.formData.fullName">
+    </div>
+
+    <div class="form-group">
+        <label>FECHA DE NACIMIENTO *</label>
+        <input required type="date" class="form-control form-control-lg" placeholder="DD/MM/YYYY" name="birthDate" #birthDate="ngModel" [(ngModel)]="service.formData.birthDate">
+    </div>
+
+    <div class="form-group">
+        <label>CIUDAD DE ORIGEN *</label>
+        <input required class="form-control form-control-lg" uppercase placeholder="Ciudad de origen del autor" name="cityOrigin" #cityOrigin="ngModel" [(ngModel)]="service.formData.cityOrigin">
+    </div>
+
+    <div class="form-group">
+        <label>CORREO ELECTRONICO *</label>
+        <input required lowercase class="form-control form-control-lg" placeholder="Correo electronico del autor" name="email" #email="ngModel" [(ngModel)]="service.formData.email">
+    </div>
+
+    <div class="form-row"></div>
+
+    <div class="form-group">
+        <br>
+        <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid">Guardar</button>
+    </div>
+
+</form>

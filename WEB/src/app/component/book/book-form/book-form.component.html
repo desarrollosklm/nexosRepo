@@ -1,0 +1,57 @@
+<form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+
+    <input type="hidden" name="idBook" 
+    [value]="service.formData.idBook" />
+    
+    <div class="form-group">
+        <label>TITULO *</label>
+        <input required uppercase class="form-control form-control-lg" placeholder="Titulo del libro" name="tittle" #tittle="ngModel" [(ngModel)]="service.formData.tittle">
+    </div>
+
+    <div class="form-group">
+        <label>AÑO *</label>
+        <input required type="number" class="form-control form-control-lg" placeholder="Año de publicacion" name="year" #year="ngModel" [(ngModel)]="service.formData.year">
+    </div>
+
+    <div class="form-group">
+        <label>GENERO *</label>
+        <input required uppercase class="form-control form-control-lg" placeholder="Genero literario" name="gender" #gender="ngModel" [(ngModel)]="service.formData.gender">
+    </div>
+
+    <div class="form-group">
+        <label># PAGINAS *</label>
+        <input required type="number" class="form-control form-control-lg" placeholder="Numero de paginas" name="numberPages" #numberPages="ngModel" [(ngModel)]="service.formData.numberPages">
+    </div>
+
+    <div class="form-group">
+        <label>EDITORIAL CODIGO *</label>
+        <input required type="number" class="form-control form-control-lg" placeholder="Nombre de la editorial" name="idEditorial" #idEditorial="ngModel" [(ngModel)]="service.formData.idEditorial">
+        
+    </div>
+    <div class="form-group">
+        <label>EDITORIAL NOMBRE *</label>
+        <select uppercase class="form-control" id="allocation-algorithm" name="idEditorial" #idEditorial="ngModel" [(ngModel)]="service.formData.idEditorial">
+            <option [ngValue]="objeto.idEditorial" *ngFor="let objeto of service.listEditorial">{{objeto.name}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>AUTOR CODIGO *</label>
+        <input required type="number" class="form-control form-control-lg" placeholder="Codigo autor del libro" name="idAuthor" #idAuthor="ngModel" [(ngModel)]="service.formData.idAuthor">
+    </div>
+
+    <div class="form-group">
+        <label>AUTOR NOMBRE *</label>
+        <select class="form-control" id="allocation-algorithm" name="idAuthor" #idAuthor="ngModel" [(ngModel)]="service.formData.idAuthor">
+            <option [ngValue]="objeto.idAuthor" *ngFor="let objeto of service.listAuthor">{{objeto.fullName}}</option>
+        </select>
+    </div>
+
+    <div class="form-row"></div>
+
+    <div class="form-group">
+        <br>
+        <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid">Guardar</button>
+    </div>
+
+</form>
